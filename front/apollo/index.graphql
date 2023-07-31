@@ -1,0 +1,11 @@
+query Contents {
+  contents {
+    data {
+      id
+      attributes {
+        name
+        description
+      }
+    }
+  }
+}
