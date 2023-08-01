@@ -1,8 +1,15 @@
+import { Content } from '@/types/graphql';
 import { Card, CardHeader, CardBody, CardFooter, Stack, Heading, Text, Divider, ButtonGroup, Button } from '@chakra-ui/react'
 import Image from 'next/image';
 import React from 'react'
 
-const ContentCard = () => {
+
+type ContentsItemsProps = {
+    content: Content;
+  };
+  
+
+const ContentCard: React.FC<ContentsItemsProps> = ({content}) => {
     return (
 
         <>
@@ -10,11 +17,9 @@ const ContentCard = () => {
   <CardBody>
     
     <Stack  mt='6' spacing='3'>
-      <Heading size='md'>Living room Sofa</Heading>
+      <Heading size='md'>{content.name}</Heading>
       <Text >
-        This sofa is perfect for modern tropical spaces, baroque inspired
-        spaces, earthy toned spaces and for people who love a chic design with a
-        sprinkle of vintage design.
+       {content.description}
       </Text>
       <Text color='blue.600' fontSize='2xl'>
         450円
@@ -33,13 +38,6 @@ const ContentCard = () => {
     </ButtonGroup>
   </CardFooter>
 </Card>
-
-
-
-
-
-
-  
 
 
 
