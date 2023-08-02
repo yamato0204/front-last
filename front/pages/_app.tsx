@@ -5,15 +5,16 @@ import { ChakraProvider } from '@chakra-ui/react'
 import type { AppProps } from 'next/app'
 import { initializeApollo } from '@/apollo/apollo'
 import { ApolloProvider } from '@apollo/client'
+import { AuthProvider } from '@/hooks/AuthContext'
 
 export default function App({ Component, pageProps,}: AppProps) {
  // const client: any = initializeApollo();
   return (
   <ChakraProvider theme={theme}> 
-  <Layout>
+  <AuthProvider>
   <Component {...pageProps} />
-  </Layout>
- 
+  
+  </AuthProvider>
  
 </ChakraProvider>
   )
