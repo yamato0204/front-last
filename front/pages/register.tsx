@@ -10,6 +10,7 @@ import { useState } from 'react'
 import { registerUser } from '@/lib/auth';
 import { AuthContext, useAuthSet } from '@/hooks/AuthContext';
 import { ZCOOL_XiaoWei } from 'next/font/google';
+import { useRouter } from 'next/router';
 
 export default function HookForm() {
 
@@ -17,17 +18,27 @@ export default function HookForm() {
 
     const AuthSet: any = useAuthSet();
 
+    const router = useRouter()
+
+
+   
+
     const handleRegister= async () => {
         
-        
-       await registerUser(data.username, data.email, data.password)
-       .then((response: any) => { 
-        AuthSet(response.data.user);
-       })
-       .catch((err) => console.log(err));
+        try {
+            const response: any = await registerUser(data.username, data.email, data.password);
+           
+            AuthSet({...data});
+            
+           
+          } catch (err) {
+            console.log(err);
+          }
+          
+       
     }
 
-    console.log(data)
+    
 
   return (
     <Flex height="80vh" alignItems="center" justifyContent="center">

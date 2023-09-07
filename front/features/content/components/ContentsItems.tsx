@@ -23,7 +23,7 @@ const ContentsItems: React.FC<ContentsItemsProps> = ({contents}) => {
     const filteredData = contents.filter(item => item.name.toLowerCase()
     .includes(stateContent.toLowerCase()));
     
-    console.log(filteredData) 
+     
 
     return (
         <Box display="flex" justifyContent="center" paddingTop="60px">
